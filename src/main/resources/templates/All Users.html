@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="/fragments/commons::head">
+</head>
+<body class="u-body"><header th:replace="/fragments/commons::header" class="u-clearfix u-header u-header" id="sec-05ce"></header>
+<input type="hidden" name="routeId" id="routeId">
+    <section class="u-clearfix u-section-1" id="sec-2330">
+      <div class="container">
+          <h2>ALL USERS</h2>
+        <div class="u-list u-list-1">
+                    <div id="rolesContainer" class="row">
+
+                    </div>
+            <a th:href="@{/users/edit/all}" sec:authorize="hasRole('ADMIN')"  class="u-btn u-btn-round u-button-style u-radius-50 u-btn-1">Edit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+<script th:src="@{/images/js/allUsers.js}"></script>
+
+<footer th:replace="/fragments/commons::footer" class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-be13"></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  </body>
+</html>

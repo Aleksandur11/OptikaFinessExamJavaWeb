@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="/fragments/commons::head">
+  </head>
+  <body class="u-body">
+  <header th:replace="/fragments/commons::header" class="u-clearfix u-header u-header" id="sec-05ce">
+
+  </header>
+    <section class="u-clearfix u-section-1" id="sec-a0bf">
+
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout">
+            <h1 id="white" class="u-text u-text-default u-text-1">Glasses<br>
+            </h1>
+            <div th:each="g:${glasses}" th:object="${g}" class="u-layout-col">
+              <div class="u-size-30">
+                <div class="u-layout-row">
+                  <div class="u-container-style u-image u-layout-cell u-left-cell u-size-30 u-image-1" th:src="*{getImageUrl()}" data-image-width="1080" data-image-height="1080">
+                    <img th:src="*{getImageUrl()}" class="u-container-layout u-valign-middle u-container-layout-1"> </img>
+                  </div>
+                  <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
+                    <div class="u-container-layout u-valign-middle u-container-layout-2">
+                      <h2 th:text="*{getBrand()}" class="u-text u-text-1">Sample Headline</h2>
+                      <p th:text="'Price: '+*{getPrice()+ 'lv.'}" class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                        <p th:text="'Model: '+ *{getModel()}" class="u-text u-text-2">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
+                      <a th:href="@{/offers/{id}/details(id=*{id})}" class="u-btn u-btn-rectangle u-button-style u-palette-1-base u-btn-1">View more</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer th:replace="/fragments/commons::footer" class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-fd3d"></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  </body>
+</html>

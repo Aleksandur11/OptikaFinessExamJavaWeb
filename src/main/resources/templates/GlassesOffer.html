@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+  <head th:replace="/fragments/commons::head">
+  </head>
+  <body class="u-body"><header th:replace="/fragments/commons::header" class="u-clearfix u-header u-header" id="sec-05ce"></header>
+    <section class="u-clearfix u-grey-5 u-section-1" id="sec-165e">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-expanded-width u-gutter-10 u-layout-wrap u-layout-wrap-1">
+          <div class="u-layout" style="">
+            <div class="u-layout-row" style="">
+              <div th:object="${offer}" class="u-container-style u-layout-cell u-left-cell u-size-30 u-size-xs-60 u-layout-cell-1" src="">
+                <div class="u-container-layout u-valign-middle u-container-layout-1">
+                  <h2 th:text="*{getModel()}" class="u-align-center u-text u-text-default u-text-1"></h2>
+                  <p th:text="*{getDescription()}" class="u-align-center u-text u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                    <p th:text="*{'Price: '+getPrice() + 'lv.'}" class="u-align-center u-text u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                    <p th:text="*{'Color:' + getColor()}" class="u-align-center u-text u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                    <p th:text="*{'Type: '+getCategory()}" class="u-align-center u-text u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                    <p th:text="*{'Manufactured: '+getYearOfCreation()}" class="u-align-center u-text u-text-2">Sample text. Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.</p>
+                  <a sec:authorize="!isAuthenticated()" href="#" class="u-btn u-btn-round u-button-style u-radius-50 u-btn-1">Buy</a>
+                  <p>
+                  <form sec:authorize="hasRole('ADMIN')" th:action="@{/offers/{id}(id=*{id})}" th:method="delete">
+                    <input id="deleteButtonGlasses" type="submit" class="btn btn-link" value="Delete"/>
+                </form>
+                  <a sec:authorize="hasRole('ADMIN')" th:href="@{/offers/{id}/edit(id=*{id})}" class="u-btn u-btn-round u-button-style u-radius-50 u-btn-1">Edit</a>
+                  </p>
+                </div>
+              </div>
+              <div th:object="${offer}" class="u-align-center u-container-style u-image u-layout-cell u-right-cell u-size-30 u-size-xs-60 u-image-1" src="" data-image-width="1080" data-image-height="1080">
+                <div class="u-container-layout u-valign-middle u-container-layout-2">
+                  <img th:src="*{getImageUrl()}"></img>
+                  <p id="white" sec:authorize="hasRole('ADMIN')" th:text="'Total request: ' + ${stats.totalRequests}" class="u-align-center u-text u-text-2"></p>
+                  <p id="white" sec:authorize="hasRole('ADMIN')" th:text="'Anon request: ' + ${stats.anonRequests}" class="u-align-center u-text u-text-2"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer th:replace="/fragments/commons::footer" class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-fd3d"></footer>
+    <section class="u-backlink u-clearfix u-grey-80">
+      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+        <span>Website Templates</span>
+      </a>
+      <p class="u-text">
+        <span>created with</span>
+      </p>
+      <a class="u-link" href="" target="_blank">
+        <span>Website Builder Software</span>
+      </a>. 
+    </section>
+  </body>
+</html>

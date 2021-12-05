@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/fragments/commons::head">
+</head>
+<body class="u-body"><header th:replace="/fragments/commons::header" class="u-clearfix u-header u-header" id="sec-05ce"></header>
+<section class="u-clearfix u-section-1" id="sec-16fb">
+  <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-form u-form-1">
+      <form th:action="@{/offers/lenses/{id}/edit(id=*{id})}"  th:method="PATCH" th:object="${lensesModel}" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form"  name="form" style="padding: 10px;">
+        <input type="hidden" id="siteId" name="siteId" value="699314658">
+        <input type="hidden" id="pageId" name="pageId" value="188408110">
+        <div class="u-form-group u-form-group-1">
+          <label class="u-form-control-hidden u-label">Select Model</label>
+        </div>
+        <div class="u-form-group u-form-group-2">
+          <label for="text-d86d" class="u-form-control-hidden u-label"></label>
+          <input th:field="*{price}" th:errorclass="is-invalid" min="1" type="text" placeholder="Enter Price" id="text-d86d" name="text-1" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+          <p class="errors alert alert-danger invalid-feedback">
+            Price is required, min 20.
+          </p>
+        </div>
+        <div class="u-form-group u-form-group-4">
+          <label for="text-30cc" class="u-form-control-hidden u-label"></label>
+          <input th:field="*{yearOfCreation}" min="1985" th:errorclass="is-invalid" type="text" placeholder="" id="text-30cc" name="text-3" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+          <p class="errors alert alert-danger invalid-feedback">
+            Minimum year of creation is 1985.
+          </p>
+        </div>
+        <div class="u-form-group u-form-group-5">
+          <label for="text-5535" class="u-form-control-hidden u-label"></label>
+          <input th:field="*{description}" min="5" th:errorclass="is-invalid" type="text" placeholder="" id="text-5535" name="text-4" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+          <p class="errors alert alert-danger invalid-feedback">
+            Description must be at least 5 symbols.
+          </p>
+        </div>
+        <div class="u-form-group u-form-group-6">
+          <label for="text-c265" class="u-form-control-hidden u-label"></label>
+          <input th:field="*{color}" min="3" th:errorclass="is-invalid" type="text" placeholder="" id="text-c265" name="text-5" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+          <p class="errors alert alert-danger invalid-feedback">
+            You must put a color.
+          </p>
+        </div>
+        <div class="u-form-group u-form-group-7">
+          <select th:errorclass="is-invalid" id="category" name="category" class="form-control">
+            <option value="">- Select engine type -</option>
+            <option th:each="c : ${T(com.example.optikafiness.model.entity.enums.LensesCategoryEnum).values()}"
+                    th:text="${c}" th:value="${c}" th:selected="${c} == *{category}"
+            >Category Type</option>
+          </select>
+          <p class="errors alert alert-danger invalid-feedback">
+            Category is required.
+          </p>
+        </div>
+        <div class="u-form-group u-form-group-8">
+          <label for="text-e4d3" class="u-form-control-hidden u-label"></label>
+          <input th:field="*{imageUrl}" th:errorclass="is-invalid" type="url" placeholder="" id="text-e4d3" name="text-7" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white">
+          <p class="errors alert alert-danger invalid-feedback">
+            Glasses image URL is required.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col col-md-4">
+            <div class="button-holder d-flex">
+              <input type="submit" class="btn btn-info btn-lg" value="Submit Offer"/>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<footer th:replace="/fragments/commons::footer" class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-be13"></footer>
+<section class="u-backlink u-clearfix u-grey-80">
+  <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
+    <span>Website Templates</span>
+  </a>
+  <p class="u-text">
+    <span>created with</span>
+  </p>
+  <a class="u-link" href="" target="_blank">
+    <span>Website Builder Software</span>
+  </a>.
+</section>
+</body>
+</html>

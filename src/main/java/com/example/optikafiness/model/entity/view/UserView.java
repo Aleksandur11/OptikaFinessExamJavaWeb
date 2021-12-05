@@ -1,0 +1,25 @@
+package com.example.optikafiness.model.entity.view;
+
+import com.example.optikafiness.model.entity.enums.UserRole;
+
+public class UserView {
+
+    private Long id;
+    private UserRole role;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
+}
